@@ -1,0 +1,13 @@
+package com.ezen.project.service;
+
+import java.util.List;
+
+import com.ezen.project.domain.BoardVO;
+import com.ezen.project.domain.CommentVO;
+import com.ezen.project.domain.PagingVO;
+
+public interface CommentService {
+
+	int register(CommentVO cvo);
+
+}

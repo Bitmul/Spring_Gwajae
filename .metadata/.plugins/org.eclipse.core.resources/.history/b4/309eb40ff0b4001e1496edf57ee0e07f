@@ -1,0 +1,87 @@
+package com.ezen.project.controller;
+
+import java.util.List;
+
+import org.springframework.security.access.prepost.PostAuthorize;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
+import com.ezen.project.domain.BoardVO;
+import com.ezen.project.domain.PagingVO;
+import com.ezen.project.handler.PagingHandler;
+import com.ezen.project.service.BoardService;
+
+import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
+@RequestMapping("/board/*")
+@RequiredArgsConstructor
+@Controller
+public class BoardController {
+
+	private final BoardService bsv;
+	
+	@GetMapping("/register")
+	public void register()
+	{
+		
+	}
+	@PostMapping("/register")
+	public String register(BoardVO bvo) {
+		log.info("BVO >>>>>>>>>>>>> " + bvo);
+		
+		int isOk = bsv.register(bvo);
+		
+		return "index";
+	}
+	
+	@GetMapping("/list")
+	public String list(Model m,PagingVO pgvo)
+	{
+		List<BoardVO> list = bsv.getList(pgvo);
+		int totalCount = bsv.getTotalCount(pgvo);
+		
+		PagingHandler ph = new PagingHandler(pgvo, totalCount);
+		m.addAttribute("list",list);
+		m.addAttribute("ph",ph);
+		return "/board/list";
+	}
+	@GetMapping("/detail")
+	public String detail(@RequestParam("bno") long bno, Model m)
+	{
+		BoardVO bvo = bsv.getBvoL(bno);
+		
+		m.addAttribute("bvo",bvo);
+		
+		return "/board/detail";
+	}
+	@GetMapping("/modify")
+	public String modify(@RequestParam("bno") long bno, Model m)
+	{
+		BoardVO bvo = bsv.getBvoL(bno);
+		
+		m.addAttribute("bvo",bvo);
+		
+		return "/board/modify";
+	}
+	@PostMapping("/modify")
+	public String modify(BoardVO bvo)
+	{
+		bsv.update(bvo);
+		
+		return "/board/detail?bno="+bvo.getBno();
+	}
+	@DeleteMapping("/delete")
+	public String delete(@RequestParam("bno") long bno){
+		
+		int isOk = bsv.delete(bno);
+		
+		return "redirect:/board/list";
+	}
+}

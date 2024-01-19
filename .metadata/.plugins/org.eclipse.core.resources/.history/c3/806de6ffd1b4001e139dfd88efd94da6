@@ -1,0 +1,5 @@
+package com.ezen.proejct.config;
+
+public class WebConfig {
+
+}

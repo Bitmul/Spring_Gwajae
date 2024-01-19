@@ -1,0 +1,15 @@
+package com.ezen.project.service;
+
+import com.ezen.project.domain.CommentVO;
+import com.ezen.project.repository.CommentDAO;
+
+public class CommentServiceImpl implements CommentService {
+
+	private final CommentDAO cdao;
+	
+	@Override
+	public int register(CommentVO cvo) {
+		return cdao.register(cvo);
+	}
+
+}

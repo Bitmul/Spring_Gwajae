@@ -1,0 +1,48 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ page session="false"%>
+<jsp:include page="../layout/header.jsp"></jsp:include>
+<jsp:include page="../layout/nav.jsp"></jsp:include>
+<form action="/board/modify" method="post">
+	<div class="mb-3">
+		<label class="form-label">bno</label> <input type="text"
+			class="form-control" name="bno" id="bno" readonly="readonly"
+			value="${bvo.bno}">
+	</div>
+	<div class="mb-3">
+		<label class="form-label">title</label> <input type="text"
+			class="form-control" name="title" id="title" readonly="readonly"
+			value="${bvo.title}">
+	</div>
+	<div class="mb-3">
+		<label class="form-label">writer</label> <input type="text"
+			class="form-control" name="writer" id="writer" readonly="readonly"
+			value="${bvo.writer}">
+	</div>
+	<div class="mb-3">
+		<label class="form-label">content</label> <input type="text"
+			class="form-control" name="content" id="content" readonly="readonly"
+			value="${bvo.content}">
+	</div>
+	<div class="mb-3">
+		<label class="form-label">regAt</label> <input type="text"
+			class="form-control" name="regAt" id="regAt" readonly="readonly"
+			value="${bvo.regAt}">
+	</div>
+	<div class="mb-3">
+		<label class="form-label">modAt</label> <input type="text"
+			class="form-control" name="modAt" id="modAt" readonly="readonly"
+			value="${bvo.modAt}">
+	</div>
+	<div class="mb-3">
+		<label class="form-label">readCount</label> <input type="text"
+			class="form-control" name="readCount" id="readCount"
+			readonly="readonly" value="${bvo.readCount}">
+	</div>
+	<a href="/board/modfiy?bno=${bvo.bno}"><button type="submit"
+			class="btn btn-warning" id="regBtn">수정하기</button></a> <a
+		href="/board/list"><button type="button" class="btn btn-danger"
+			id="regBtn">취소하기</button></a>
+</form>
+<jsp:include page="../layout/footer.jsp"></jsp:include>

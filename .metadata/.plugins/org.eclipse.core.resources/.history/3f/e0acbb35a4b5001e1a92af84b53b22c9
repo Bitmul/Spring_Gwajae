@@ -1,0 +1,30 @@
+package com.ezen.project.repository;
+
+import java.util.List;
+
+import com.ezen.project.domain.BoardVO;
+import com.ezen.project.domain.PagingVO;
+
+public interface BoardDAO {
+
+	int register(BoardVO bvo);
+
+	List<BoardVO>getList(PagingVO pgvo);
+
+	int getTotalCount(PagingVO pgvo);
+
+	BoardVO getBvoL(long bno);
+
+	int delete(long bno);
+
+	int update(BoardVO bvo);
+
+	void readCount(long bno);
+
+	void readCountAdjust(long bno);
+
+	int bichu(long bno);
+
+	int gaechu(long bno);
+
+}

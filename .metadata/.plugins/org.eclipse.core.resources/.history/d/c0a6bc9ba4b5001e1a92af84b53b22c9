@@ -1,0 +1,81 @@
+package com.ezen.project.service;
+
+import java.util.List;
+
+import org.springframework.stereotype.Service;
+
+import com.ezen.project.domain.BoardDTO;
+import com.ezen.project.domain.BoardVO;
+import com.ezen.project.domain.PagingVO;
+import com.ezen.project.repository.BoardDAO;
+
+import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
+@RequiredArgsConstructor
+@Service
+public class BoardServiceImpl implements BoardService {
+	
+	private final BoardDAO bdao;
+
+	@Override
+	public int register(BoardDTO bdto) {
+		
+		return bdao.register(bdto.getBvo());
+	}
+
+	@Override
+	public List<BoardVO>getList(PagingVO pgvo) {
+		return bdao.getList(pgvo);
+	}
+
+	@Override
+	public int getTotalCount(PagingVO pgvo) {
+		return bdao.getTotalCount(pgvo);
+	}
+
+	@Override
+	public BoardVO getBvoL(long bno) {
+		return bdao.getBvoL(bno);
+	}
+
+	@Override
+	public int delete(long bno) {
+		return bdao.delete(bno);
+	}
+
+	@Override
+	public int update(BoardDTO bdto) {
+		return bdao.update(bdto.getBvo());
+	}
+
+	@Override
+	public void readCount(long bno) {
+		bdao.readCount(bno);
+	}
+
+	@Override
+	public void readCountAdjust(long bno) {
+		bdao.readCountAdjust(bno);
+	}
+
+	@Override
+	public int gaechu(long bno) {
+		// TODO Auto-generated method stub
+		return bdao.gaechu(bno);
+	}
+
+	@Override
+	public int bichu(long bno) {
+		// TODO Auto-generated method stub
+		return bdao.bichu(bno);
+	}
+
+	@Override
+	public int removeFile(String uuid) {
+		// TODO Auto-generated method stub
+		return bdao.removeFile(uuid);
+	}
+
+}

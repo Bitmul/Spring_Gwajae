@@ -1,0 +1,12 @@
+package com.ezen.project.repository;
+
+import com.ezen.project.domain.BoardVO;
+
+public class BoardDAO {
+
+	public int register(BoardVO bvo) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+}

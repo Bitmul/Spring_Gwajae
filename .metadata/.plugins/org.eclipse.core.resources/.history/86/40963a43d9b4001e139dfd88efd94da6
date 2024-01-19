@@ -1,0 +1,18 @@
+package com.ezen.project.service;
+
+import com.ezen.project.domain.BoardVO;
+
+@Slf4j
+@RequiredArgsConstructor
+@Service
+public class BoardServiceImpl implements BoardService {
+	
+	private final BoardDAO bdao;
+
+	@Override
+	public int register(BoardVO bvo) {
+		
+		return 
+	}
+
+}

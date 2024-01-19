@@ -1,0 +1,5 @@
+package com.ezen.project.domain;
+
+public interface BoardDTO {
+
+}

@@ -1,0 +1,9 @@
+package com.ezen.project.repository;
+
+import com.ezen.project.domain.CommentVO;
+
+public interface CommentDAO {
+
+	int register(CommentVO cvo);
+
+}

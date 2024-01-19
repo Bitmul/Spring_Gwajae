@@ -1,0 +1,11 @@
+package com.ezen.project.repository;
+
+public interface FileDAO {
+
+	int insertFile(FileVO fvo);
+
+	List<FileVO> getFileList(long bno);
+
+	int removeFile(String uuid);
+	
+}

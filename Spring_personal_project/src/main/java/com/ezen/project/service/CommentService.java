@@ -1,0 +1,20 @@
+package com.ezen.project.service;
+
+import java.util.List;
+
+import com.ezen.project.domain.CommentVO;
+import com.ezen.project.domain.PagingVO;
+import com.ezen.project.handler.PagingHandler;
+
+public interface CommentService {
+
+	int register(CommentVO cvo);
+
+	PagingHandler getList(long bno, PagingVO pgvo);
+	
+	int modify(CommentVO cvo);
+
+	int delete(long cno);
+
+
+}
